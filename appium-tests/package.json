@@ -1,0 +1,16 @@
+{
+  "name": "trackyo-appium-e2e",
+  "version": "1.0.0",
+  "description": "Appium E2E tests for Trackyo Android App (WebView/WebIntoApp)",
+  "main": "run-appium-tests.js",
+  "scripts": {
+    "test": "node run-appium-tests.js",
+    "install-driver": "appium driver install uiautomator2"
+  },
+  "dependencies": {
+    "webdriverio": "^8.39.0",
+    "@wdio/appium-service": "^8.39.0",
+    "exceljs": "^4.4.0",
+    "dotenv": "^16.4.5"
+  }
+}
