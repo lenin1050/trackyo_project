@@ -1,0 +1,14 @@
+{
+  "name": "trackyo-selenium-tests",
+  "version": "1.0.0",
+  "description": "Selenium E2E tests for Trackyo Expense Tracker",
+  "main": "run-tests.js",
+  "scripts": {
+    "test": "node run-tests.js"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "mongodb-memory-server": "^11.2.0",
+    "selenium-webdriver": "^4.22.0"
+  }
+}

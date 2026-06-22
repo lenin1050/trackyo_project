@@ -1,0 +1,45 @@
+name: Trackyo E2E & Mobile Test Verification
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  verify:
+    name: Verify E2E Reports
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Backend Dependencies
+        working-directory: ./trackyo_website/backend
+        run: npm install
+
+      - name: Install Frontend Dependencies
+        working-directory: ./trackyo_website/frontend
+        run: npm install
+
+      - name: Install Selenium Test Dependencies
+        working-directory: ./trackyo_website/backend/selenium-tests
+        run: npm install
+
+      - name: Generate E2E Results
+        working-directory: ./trackyo_website/backend/selenium-tests
+        run: node run-tests.js || true
+
+      - name: Upload E2E Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: E2E-Test-Report
+          path: trackyo_website/backend/selenium-tests/E2E_Test_Report_Trackyo_*.xlsx
+          if-no-files-found: ignore

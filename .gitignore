@@ -1,0 +1,29 @@
+# Node.js dependencies
+node_modules/
+package-lock.json (except if needed, but standard is to keep package-lock.json; wait, usually we keep package-lock.json in git, so let's not ignore it. But wait, git status showed "modified: backend/package-lock.json", meaning it's already tracked. Let's not ignore it.)
+
+# Ignore build output folders
+frontend/dist/
+dist/
+build/
+
+# Ignore local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+*.env.local
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore local E2E test runs (keep only specific static results)
+trackyo_website/backend/selenium-tests/E2E_Test_Report_Trackyo_*.xlsx
+
+# Ignore temporary developer scratchpads
+trackyo_website/read_excel.js
+trackyo_website/backend/scratch/
+trackyo_website/.git_nested_backup/
